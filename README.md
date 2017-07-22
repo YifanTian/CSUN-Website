@@ -1,2 +1,2 @@
 # CSUN-Website
-Websites for CSUN
+Websites for CSUN.
