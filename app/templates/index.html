@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+  <head>
+    <!--<link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">-->
+
+    <link href="/static/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="static/css/jquery-ui.min.css">
+    <link href="static/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="static/resource/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="static/js/background.min.js"></script>
+ 
+    <script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" >
+        
+     
+        
+      var main = function(){
+          
+          $(".arrow-next").click(function(){
+              
+              
+              var currentSlides = $('.active-slides');
+              var nextSlides = currentSlides.next();
+              
+              
+              
+              
+              var currentDot = $('.active-dot');
+              var nextDot = currentDot.next();
+              
+              
+              if(nextSlides.length===0)
+                  {
+                      nextSlides = $('.slides').first();
+                      nextDot = $('.dot').first();
+                  }
+              
+              currentSlides.fadeOut(600).removeClass('active-slides');
+              nextSlides.fadeIn(600).addClass('active-slides');
+              
+              currentDot.removeClass('active-dot');
+              nextDot.addClass('active-dot');
+              
+          });
+          
+          
+          $('.arrow-prev').click(function(){
+              
+              var currentSlides = $('.active-slides');
+              var prevSlides = currentSlides.prev();
+              
+              var currentDot = $('.active-dot');
+              var prevDot = currentDot.prev();
+              
+              if(prevSlides.length===0)
+                  {
+                      prevSlides = $('.slides').last();
+                      prevDot = $('.dot').last();
+                  }
+              
+              currentSlides.fadeOut(600).removeClass('active-slides');
+              prevSlides.fadeIn(600).addClass('active-slides');
+              
+              currentDot.removeClass('active-dot');
+              prevDot.addClass('active-dot');
+              
+          });
+          
+          
+          $('.dropDown').click(function(){
+              
+               $('.lateral-menu').fadeToggle(300);
+               var currentIcon = $(".icon-plus");
+               
+               currentIcon.toggleClass("icon-spin");
+               
+               
+               
+          });
+          
+            
+          $( "#draggable" ).draggable();
+          
+          $("#droppable").droppable({
+              
+              
+              
+              drop:function(event,ui){
+                  
+                  $(".emblem").html("<a href='http：//www.baidu.com'>点我查看福利</a>")
+              }
+              
+          });
+            
+      } 
+      
+      $(document).ready(function(){
+             
+             setTimeout(function(){
+                $('#wrapper').addClass('loaded');
+                 
+             },2000); 
+              
+          });
+      
+      $(document).ready(main);
+      </script>
+      
+      
+    <meta charset="UTF-8">  
+    <title> CUCS</title>
+      
+      
+  </head>
+  <body>
+      
+      <!--Logo，顶部菜单-->
+     <header class="container">
+      <div class="row">
+        <img class="col-sm-8" src="/static/img/1498880545(1).jpg" >
+        <nav class="col-sm-4">
+           <ul class="menu">
+               <li><a href = "index.html"><i class="icon-home icon-2x"></i> 主页</a></li>
+               <li><a href = "/introduction"><i class="icon-bookmark icon-2x"></i>  社团简介</a></li>
+               <li><a href = "/event"><i class="icon-camera icon-2x"></i>  活动回顾</a></li>
+               <li >
+                <a  href="#" class="dropDown"> 实用工具  <i class=" icon-plus icon-spin"></i></a>
+                <div class="lateral-menu">
+                    <a><i class="icon-book icon-2x"></i>Pre-requisite checker</a>
+                    <a><i class="icon-coffee icon-2x"></i>Project partner Finder</a>
+                </div>   
+               </li>
+           </ul>       
+        </nav>
+      </div>
+      </header>
+      
+    <!--主要区域-->
+      <section class="jumbotron">
+        <div class="slides active-slides">
+          <div class=container>
+            
+            <div class="row">
+                
+                <div class="col-sm-12">
+                    <div class="emblem"><h1>Welcome to CUCS</h1></div>  
+                    <canvas id="background"></canvas>
+                    
+                    
+                    
+                </div>    
+                  
+                
+            </div>    
+          </div>      
+        </div>
+          
+        <div class="slides">
+          <div class="row">
+              <div class="slide-copy col-xs-5">
+                  <h1>action</h1>
+              </div>
+              <div class="col-xs-7">
+                   
+                    
+                    
+                    
+                    
+                </div>    
+          </div>
+        </div>    
+        
+          
+        <div class="slides">
+          <div class="row">
+              <div class="slide-copy col-xs-5">
+                  <h1>action2</h1>
+              </div>
+              <div class="col-xs-7">
+                   
+                    
+                    
+                    
+                    
+                </div>    
+          </div>
+        </div>  
+      
+        <div class="slides">
+          <div class="row">
+              <div class="slide-copy col-xs-5">
+                  <h1>action3</h1>
+              </div>
+              <div class="col-xs-7">
+                   
+                   
+                    
+                    
+                    
+                </div>    
+          </div>
+        </div>  
+          
+      
+      
+      </section>
+        
+      <section class="container arrowContainer"> 
+        <div class="slide_nav">
+            <a href="#" class="arrow-prev" ><i class="icon-chevron-left icon-2x"></i></a>
+            <ul class="slides-dots">
+              <li class="dot active-dot">&bull;</li>
+              <li class="dot">&bull;</li>
+              <li class="dot">&bull;</li>
+              <li class="dot">&bull;</li>
+                <a href="#" class="arrow-next"><i class="icon-chevron-right icon-2x"></i></a>    
+            </ul>    
+          
+        </div>
+      </section>      
+      
+      
+      
+    <!--底部区域 -->    
+      <section class="container bottomSection ">
+          
+          
+              <ul  class="Signer">
+                  <div id="draggable" class="ui-widget-content"><li><a href="#"><i class="icon-group icon-4x"></i><br>负责人</a></li></div>
+                  
+              </ul>
+          
+                <div id="droppable" class="ui-widget-header">
+                    
+                </div> <!-- 福利drop区域-->
+          
+          
+              <ul class = "Department">
+                  <li ><a href="/dept1"><i class="icon-magnet icon-4x"></i><br>宣传部</a></li>
+                  <li><a href="/dept2"><i class="icon-laptop icon-4x"></i><br>学术部</a></li>
+                  <li><a href="/dept3"><i class="icon-film icon-4x"></i><br>活动部</a></li>
+                  <li><a href="/dept4" class="diplomacyDepartment"><i class="icon-plane icon-4x"></i><br>外联部</a></li>
+              </ul>      
+               
+      </section>          
+     
+      
+    <div id="wrapper">
+          <div id="loader">
+              <h1>Loading....</h1>
+          </div>      
+      </div>  <!-- 页面预加载动画 -->    
+      
+      
+      
+  </body>
+  <footer class="container">
+          
+          <p>Copyright(c)2017 CUCS at UCI</p>
+  </footer>
+    
+</html>
